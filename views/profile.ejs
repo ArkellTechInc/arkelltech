@@ -1,0 +1,58 @@
+<% include partials/header %>
+<div class="siteContainer">
+	<div class="topSection">
+			<div class="statusContainer"><h2><%=firstname%> <%=lastname%> </h2><h3>is working on a forum.</h3><span class="edit">[edit]</span></div>
+		<ul>
+			<li>Home</li>
+			<li class="notActiveTab">+</li>
+		</ul>
+	</div>
+	<div class="feedSection">
+		<div class="newFeedPost">
+		<form action="/profile" method="post">
+			<h3>What would you list to post?</h3>
+			<table><tr>
+				<td><h2><%=firstname%> <%=lastname%></h2></td>
+				<td><input type="text" placeholder="..." name=""></td>
+				<td><button type="submit">post</button></td>
+			</tr></table>
+			</form>
+		</div>
+	</div>
+	<div class="profileSection">
+		<div id="profilePic"><img src="images/noImage.jpg" alt="test" /></div>
+		<ul class="underProfilePic">
+				<li>change profile picture</li>
+				<li>view members (3)</li>
+		</ul>
+		<div class="underProfilePicInfoBox">
+			<h3>title</h3>
+			<h2>president</h2>
+			<h3>latest post</h3>
+			<h2>none</h2>
+			<h3>status</h3>
+			<h2>online</h2>
+		</div>
+	</div>
+	
+	
+	<div class="topMenu">
+		<ul>
+			<li id="siteTitle"><%=title%></li>
+			<li><%=firstname%> <%=lastname%></li>
+			<li>forums</li>
+			<li>chat</li>
+			<li>inbox (<%=inboxCount%>)</li>
+			<span class="floatRight">
+			<form action="/search" method="post">
+				<li><input type="text" placeholder="search" name="search"></li>
+				<li><button type="submit">go</button></li>
+			</form>
+			<a href="/logout">
+				<li>logout</li>
+			</a>
+			</span>
+		</ul>
+	</div>
+</div>
+<% include partials/footer %>

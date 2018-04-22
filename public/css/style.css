@@ -1,0 +1,269 @@
+/*--------------------------------------------------------------------- FONT IMPORTS -------------------------------------------------------------------------- */
+@font-face {
+	font-family: 'anon';
+	src: url('../fonts/anon.eot');
+	src: url('../fonts/anon.eot?#iefix') format('embedded-opentype');
+}
+@font-face {
+	font-family: 'anon';
+	src: url('../fonts/anon.svg#Anonymous Pro') format('svg');
+	src: url('../fonts/anon.woff') format('woff');
+	src: url('../fonts/anon.ttf') format('truetype');
+}
+/*--------------------------------------------------------------------- CSS RESET -------------------------------------------------------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+	box-sizing: border-box;
+}
+/*--------------------------------------------------------------------- END OF RESET -------------------------------------------------------------------------- */
+
+/*--------------------------------------------------------------------- TAGS -------------------------------------------------------------------------- */
+*,body {
+	font-family: anon, monospace;
+}
+button {
+	background-color: rgba(0,0,0,1);
+	border: 2px solid rgba(255,255,255,1);
+	color: rgba(255,255,255,1);
+	font-family: anon, monospace;
+	font-size: 18px;
+	padding: 10px;
+}
+input {
+    background-color: rgba(255,255,255,1);
+	font-size: 18px;
+	padding: 5px;
+}
+/*--------------------------------------------------------------------- END OF TAGS -------------------------------------------------------------------------- */
+
+/*--------------------------------------------------------------------- CLASSES -------------------------------------------------------------------------- */
+.bottomSection {
+	position: relative;
+	width: 100%;
+}
+.edit {
+	display: inline-block;
+}
+.feedSection {
+	width: 630px;
+	margin: 20px 20px 20px 450px;
+}
+.statusContainer {
+	position: absolute;
+	min-width: 630px;
+	height: 50px;
+	top: 75px;
+	left: 450px;
+}
+.statusContainer h2 {
+	display: inline-block;
+	font-size: 36px;
+}
+.statusContainer h3 {
+	display: inline-block;
+	font-size: 24px;
+	padding-left: 10px;
+}
+.floatRight {
+	float: right;
+}
+.newFeedPost {
+	min-width: 630px;
+	padding: 10px 20px;
+	border: 1px solid rgba(0,0,0,1);
+	background-color: rgba(0,0,0,0.1);
+	
+}
+.newFeedPost button {
+	border: none;
+	margin-left: 10px;
+}
+.newFeedPost input {
+	width: 100%;
+}
+.newFeedPost table {
+	width: 600px;
+}
+.newFeedPost h2 {
+	font-size: 24px;
+	display: inline;
+}
+.newFeedPost h3{
+	line-height: 36px;
+	font-size: 18px;
+}
+.notActiveTab {
+	background-color: rgba(0,0,0,0.5)!important;
+	color: rgba(255,255,255,1)!important;
+}
+.profileSection {
+	position: absolute;
+	left: 0;
+	top: 100px;
+	font-size: 22px;
+	margin: 0 25px;
+	width: 400px;
+	
+}
+.profileSection li,.underProfilePicInfoBox {
+	padding: 0 20px;
+}
+.registerSection {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40%;
+	min-width: 320px;
+	padding: 1%;
+}
+.registerSection input {
+	width: 100%;
+	margin: 1% 0;
+}
+.registerSection .nameInput {
+	width: 48%;
+}
+.registerSection #lastName {
+	float: right;
+}
+.registerText {
+	width: 40%;
+	vertical-align: bottom;
+}
+.siteContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 100%;
+}
+.topMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 1080px;
+	min-width: 100%;
+	height: 50px;
+	background-color: rgba(0,0,0,1);
+}
+.topMenu ul{
+	list-style-type: none;
+	margin: 0 10px;
+}
+.topMenu ul form{
+	display: inline;
+	line-height: 50px;
+}
+.topMenu ul li {
+	display: inline;
+	padding: 0 10px;
+	vertical-align: middle;
+	color: rgba(255,255,255,1);
+}
+.topSection {
+	position: relative;
+	width: 100%;
+	height: 200px;
+	background-color: rgba(0,0,0,0.1);
+}
+.topSection h1 {
+	position: absolute;
+	bottom: 5%;
+	right: 0;
+	width: 40%;
+	font-size: 36px;
+}
+.topSection ul {
+	position: absolute;
+	bottom: 0;
+	left: 450px;
+	list-style-type: none;
+}
+.topSection ul li{
+	display: inline-block;
+	text-align: center;
+	padding: 20px;
+	min-width: 60px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	background-color: rgba(255,255,255,1);
+}
+
+.underProfilePic li {
+	border-bottom: 1px solid rgba(0,0,0,1);
+	line-height: 40px;
+}
+.underProfilePicInfoBox {
+	margin: 25px 0;
+	background-color: rgba(0,0,0,0.1);
+	padding-bottom: 30px;
+}
+.underProfilePicInfoBox h3{
+	color: rgba(0,0,0,0.5);
+	line-height: 20px;
+	padding-top: 20px;
+}
+/*--------------------------------------------------------------------- END OF CLASSES -------------------------------------------------------------------------- */
+
+/*--------------------------------------------------------------------- IDS -------------------------------------------------------------------------- */
+#profilePic img {
+	position: relative;
+	width: 400px;
+	height: auto;
+	border: 2px solid rgba(0,0,0,1);
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+}
+#siteTitle {
+	font-size: 30px!important;
+	line-height: 50px;
+}
+/*--------------------------------------------------------------------- END OF IDS -------------------------------------------------------------------------- */
