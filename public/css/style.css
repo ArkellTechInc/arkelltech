@@ -92,7 +92,8 @@ input {
 	display: inline-block;
 }
 .feedSection {
-	width: 630px;
+	min-width: 630px;
+	width: calc(100%-450px);
 	margin: 20px 20px 20px 450px;
 }
 .statusContainer {
@@ -116,6 +117,7 @@ input {
 }
 .newFeedPost {
 	min-width: 630px;
+	width: 80%;
 	padding: 10px 20px;
 	border: 1px solid rgba(0,0,0,1);
 	background-color: rgba(0,0,0,0.1);
@@ -125,11 +127,18 @@ input {
 	border: none;
 	margin-left: 10px;
 }
-.newFeedPost input {
+.newFeedPost textarea {
 	width: 100%;
+	resize: none;
+	display: block;
+	box-sizing: padding-box;
+	overflow: hidden;
+	word-wrap: break-word;
+	font-size: 100%;
+	padding: 5px;
 }
 .newFeedPost table {
-	width: 600px;
+	width: 100%;
 }
 .newFeedPost h2 {
 	font-size: 24px;
@@ -142,6 +151,10 @@ input {
 .notActiveTab {
 	background-color: rgba(0,0,0,0.5)!important;
 	color: rgba(255,255,255,1)!important;
+}
+.nowrap {
+	width:1%;
+    white-space:nowrap;
 }
 .profileSection {
 	position: absolute;

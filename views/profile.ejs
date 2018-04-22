@@ -12,15 +12,15 @@
 		<form action="/profile" method="post">
 			<h3>What would you list to post?</h3>
 			<table><tr>
-				<td><h2><%=firstname%> <%=lastname%></h2></td>
-				<td><input type="text" placeholder="..." name=""></td>
-				<td><button type="submit">post</button></td>
+				<td class="nowrap"><h2><%=firstname%> <%=lastname%>&nbsp</h2></td>
+				<td><textarea class="autoExpand" rows='1' data-min-rows='1' wrap="hard" type="text" placeholder="..." name="" autocomplete="off"></textarea></td>
+				<td class="nowrap"><button type="submit">post</button></td>
 			</tr></table>
 			</form>
 		</div>
 	</div>
 	<div class="profileSection">
-		<div id="profilePic"><img src="images/noImage.jpg" alt="test" /></div>
+		<div id="profilePic"><img src="images/image.png" alt="test" /></div>
 		<ul class="underProfilePic">
 				<li>change profile picture</li>
 				<li>view members (3)</li>
