@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-
+var posts = [ {
+	firstname: "Bob",
+	lastname: "Lob",
+	message: "Hi",
+	date: "today"
+}];
 // GET route for reading data
 router.get('/', function (req, res, next) {
 	res.render('index', {
@@ -76,7 +81,8 @@ router.get('/profile', function (req, res, next) {
 				title: 'arkell tech',
 				firstname: user.firstname,
 				lastname: user.lastname,
-				inboxCount: '1'
+				inboxCount: '1',
+				posts: posts
 			});
         }
       }

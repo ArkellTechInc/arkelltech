@@ -18,6 +18,11 @@
 			</tr></table>
 			</form>
 		</div>
+		<table>
+		<% posts.forEach(function(post){  %>
+			<tr><td><%= post.firstname %> <%= post.lastname %>: </td><td><%= post.message %>[<%= post.date %>]</td><tr>
+		<% }) %>
+		</table>
 	</div>
 	<div class="profileSection">
 		<div id="profilePic"><img src="images/image.png" alt="test" /></div>
