@@ -21,6 +21,10 @@ var UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  feedcount: {
+	  type: Array,
+	  'default': [0]
   }
 });
 
@@ -56,7 +60,6 @@ UserSchema.pre('save', function (next) {
     next();
   })
 });
-
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

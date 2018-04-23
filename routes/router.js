@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-var posts = [ {
-	firstname: "Bob",
-	lastname: "Lob",
-	message: "Hi",
-	date: "today"
-}];
+var FeedPost = require('../models/feed');
+
 // GET route for reading data
 router.get('/', function (req, res, next) {
 	res.render('index', {
@@ -77,16 +73,46 @@ router.get('/profile', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
-          res.render('profile', {
-				title: 'arkell tech',
-				firstname: user.firstname,
-				lastname: user.lastname,
-				inboxCount: '1',
-				posts: posts
-			});
-        }
-      }
+			//page succussfully loaded here
+			req.session.activeFeed = req.session.userId+user.feedcount[0];
+			FeedPost.find({'postedto':user._id}, function (error, feed) {
+				feed.reverse();
+				res.render('profile', {
+					title: 'arkell tech',
+					firstname: user.firstname,
+					lastname: user.lastname,
+					inboxCount: '1',
+					feed: feed
+					});
+				});
+			}
+		}
     });
+});
+router.post('/profile', function(req,res, next){
+	if (req.body.post){
+		var postData = {
+		  feed: req.session.activeFeed,
+		  postedby: req.session.userId,
+		  postedto: req.session.userId,
+		  post: req.body.post,
+		  date: new Date()
+		}
+		FeedPost.create(postData, function (error, post) {
+			if (error) {
+				return next(error);
+			} else {
+				return res.redirect('/postedToFeed');
+			}
+		});
+	} else {
+		var err = new Error('All fields required.');
+		err.status = 400;
+		return next(err);
+	}
+});
+router.get('/postedToFeed', function(req,res){
+	res.redirect('/profile');
 });
 
 // GET for logout logout

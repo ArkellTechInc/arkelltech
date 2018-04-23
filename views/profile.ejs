@@ -13,14 +13,14 @@
 			<h3>What would you list to post?</h3>
 			<table><tr>
 				<td class="nowrap"><h2><%=firstname%> <%=lastname%>&nbsp</h2></td>
-				<td><textarea class="autoExpand" rows='1' data-min-rows='1' wrap="hard" type="text" placeholder="..." name="" autocomplete="off"></textarea></td>
+				<td><textarea class="autoExpand" rows='1' data-min-rows='1' wrap="hard" type="text" placeholder="..." name="post" autocomplete="off"></textarea></td>
 				<td class="nowrap"><button type="submit">post</button></td>
 			</tr></table>
 			</form>
 		</div>
-		<table>
-		<% posts.forEach(function(post){  %>
-			<tr><td><%= post.firstname %> <%= post.lastname %>: </td><td><%= post.message %>[<%= post.date %>]</td><tr>
+		<table class="feed">
+		<% feed.forEach(function(post){  %>
+			<tr><td><%=firstname%> <%=lastname%> </td><td><%= post.post %>[<%= post.date %>]</td><tr>
 		<% }) %>
 		</table>
 	</div>

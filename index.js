@@ -7,6 +7,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 var port = 3000;
+var database = "arkelltech";
 
 //View Engine
 app.set('view engine', 'ejs');
@@ -16,7 +17,7 @@ app.set('views', path.join(__dirname,'views'));
 app.use(express.static(path.join(__dirname,'public')));
 
 //connect to MongoDB
-mongoose.connect('mongodb://localhost/arkelltech');
+mongoose.connect('mongodb://localhost/'+database);
 var db = mongoose.connection;
 
 //handle mongo error

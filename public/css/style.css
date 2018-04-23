@@ -91,6 +91,19 @@ input {
 .edit {
 	display: inline-block;
 }
+.feed {
+	min-width: 630px;
+	width: 80%;
+	padding: 10px 20px;
+	margin: 20px 0;
+	border: 1px solid rgba(0,0,0,1);
+	background-color: rgba(0,0,0,0.1);
+}
+.feed tr td {
+	padding: 10px 20px;
+	border: 1px solid rgba(0,0,0,1);
+	background-color: rgba(0,0,0,0.1);
+}
 .feedSection {
 	min-width: 630px;
 	width: calc(100%-450px);
