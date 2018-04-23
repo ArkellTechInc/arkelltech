@@ -91,18 +91,49 @@ input {
 .edit {
 	display: inline-block;
 }
+.editFeed {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
 .feed {
+	position: relative;
 	min-width: 630px;
 	width: 80%;
-	padding: 10px 20px;
-	margin: 20px 0;
+	min-height: 50px;
+	padding: 10px 20px 10px 20px;
+	margin: 20px 0 20px 100;
 	border: 1px solid rgba(0,0,0,1);
 	background-color: rgba(0,0,0,0.1);
 }
-.feed tr td {
-	padding: 10px 20px;
-	border: 1px solid rgba(0,0,0,1);
-	background-color: rgba(0,0,0,0.1);
+.feedDate {
+	font-size: 70%;
+}
+.feedName {
+	font-size: 80%;
+	font-weight: bold;
+	text-indent: -8px;
+}
+.feedPost {
+	white-space: pre;
+	font-size: 110%;
+	margin-top: 5px;
+}
+
+.feedProfilePic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(-110%);
+}
+.feedProfilePic img{
+	position: relative;
+	width: auto;
+	height: 50px;
+	border: 2px solid rgba(0,0,0,1);
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
 }
 .feedSection {
 	min-width: 630px;

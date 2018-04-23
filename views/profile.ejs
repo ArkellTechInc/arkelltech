@@ -18,11 +18,14 @@
 			</tr></table>
 			</form>
 		</div>
-		<table class="feed">
 		<% feed.forEach(function(post){  %>
-			<tr><td><%=firstname%> <%=lastname%> </td><td><%= post.post %>[<%= post.date %>]</td><tr>
+			<div class="feed">
+				<div class="feedProfilePic"><img src="images/image.png" alt="test" /></div>
+				<div class="feedName"><%=firstname%> <span class="feedDate"><%= post.date %></span></div>
+				<div class="feedPost"><%= post.post %></div>
+				<div class="editFeed">[edit]</div>
+			</div>
 		<% }) %>
-		</table>
 	</div>
 	<div class="profileSection">
 		<div id="profilePic"><img src="images/image.png" alt="test" /></div>
