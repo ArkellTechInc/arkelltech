@@ -24,8 +24,39 @@ var UserSchema = new mongoose.Schema({
   },
   feedcount: {
 	  type: Array,
-	  'default': [0]
+	  'default': []
+  },
+  jobtitle: {
+    type: String,
+    trim: true,
+	'default': "member"
+  },
+  profilestatus: {
+    type: String,
+    trim: true,
+	'default': "just registered"
+  },
+  latestpost: {
+    type: String,
+    trim: true,
+	'default': "N/A"
+  },
+  status: {
+    type: String,
+	enum: ["workin'", "mossin'"],
+    trim: true,
+	'default': "workin'"
+  },
+  profilepic: {
+    type: String,
+    trim: true,
+	'default': "nopic.jpg"
+  },
+  inboxcount: {
+    type: Number,
+	'default': 1
   }
+  
 });
 
 //authenticate input against database
@@ -60,6 +91,8 @@ UserSchema.pre('save', function (next) {
     next();
   })
 });
+
+
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

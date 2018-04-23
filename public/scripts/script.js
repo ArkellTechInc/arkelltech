@@ -12,3 +12,12 @@ $(document)
         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
         this.rows = minRows + rows;
     });
+
+function showTab(index) {
+	console.log("show tab with index "+index);
+}
+function createTab() {
+	$('#createTab').hide();
+	$('#createTab').before("<li id='newTab'><input type='text' placeholder='new tab' name='newtab' autofocus='autofocus'><button type='submit'>save</button></li>");
+	console.log("create a new tab");
+}

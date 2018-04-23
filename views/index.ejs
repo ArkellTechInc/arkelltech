@@ -6,9 +6,9 @@
 			<form action="/" method="post">
 				<input class="nameInput" type="text" placeholder="first name" name="firstname" >
 				<input class="nameInput" id="lastName" type="text" placeholder="last name" name="lastname">
-				<input type="text" placeholder="email" name="email" required>
-				<input type="password" placeholder="password" name="password" required>
-				<input type="password" placeholder="confirm password" name="passwordConf" required>
+				<input type="email" placeholder="email" name="email" required>
+				<input type="password" placeholder="password" name="password" minlength="6" required>
+				<input type="password" placeholder="confirm password" name="passwordConf" minlength="6" required>
 				<button type="submit">register</button>
 			</form>
 	
@@ -19,8 +19,8 @@
 			<li id="siteTitle"><%=title%></li>
 			<span class="floatRight">
 				<form action="/" method="post">
-					<li><input type="text" placeholder="email" name="logemail" autofocus="autofocus" required></li>
-					<li><input type="password" placeholder="password" name="logpassword" required></li>
+					<li><input type="email" placeholder="email" name="logemail" autofocus="autofocus" required></li>
+					<li><input type="password" placeholder="password" name="logpassword" minlength="6" required></li>
 					<li><button type="submit">sign in</button></li>
 				</form>
 			</span>

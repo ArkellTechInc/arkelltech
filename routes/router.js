@@ -63,31 +63,45 @@ router.post('/', function (req, res, next) {
 
 // GET route after registering
 router.get('/profile', function (req, res, next) {
-  User.findById(req.session.userId)
-    .exec(function (error, user) {
-      if (error) {
-        return next(error);
-      } else {
-        if (user === null) {
-          var err = new Error('Not authorized! Go back!');
-          err.status = 400;
-          return next(err);
-        } else {
-			//page succussfully loaded here
-			req.session.activeFeed = req.session.userId+user.feedcount[0];
-			FeedPost.find({'postedto':user._id}, function (error, feed) {
-				feed.reverse();
-				res.render('profile', {
-					title: 'arkell tech',
-					firstname: user.firstname,
-					lastname: user.lastname,
-					inboxCount: '1',
-					feed: feed
-					});
-				});
+	User.count({}, function( error, count){
+		User.findById(req.session.userId).exec(function (error, user) {
+		if (error) {
+			return next(error);
+		} else {
+			User.findById(req.session.userId).exec(function (error, user) {
+				if (error) {
+					return next(error);
+			} else {
+				if (user === null) {
+					var err = new Error('Not authorized! Go back!');
+					err.status = 400;
+					return next(err);
+				} else {
+					//page succussfully loaded here
+					req.session.activeFeed = req.session.userId+user.feedcount[0];
+					FeedPost.find({'postedto':user._id}, function (error, feed) {
+						feed.reverse();
+						res.render('profile', {
+							title: 'arkell tech',
+							firstname: user.firstname,
+							lastname: user.lastname,
+							jobtitle: user.jobtitle,
+							latestpost: user.latestpost,
+							status: user.status,
+							inboxcount: user.inboxcount,
+							feed: feed,
+							feedcount: user.feedcount,
+							profilepic: user.profilepic,
+							profilestatus: user.profilestatus,
+							totalmembers: count
+							});
+						});
+					}
+				}
+			});
 			}
-		}
-    });
+		});
+	});
 });
 router.post('/profile', function(req,res, next){
 	if (req.body.post){

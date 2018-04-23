@@ -90,6 +90,7 @@ input {
 }
 .edit {
 	display: inline-block;
+	font-size: 14px;
 }
 .editFeed {
 	position: absolute;
@@ -120,7 +121,6 @@ input {
 	font-size: 110%;
 	margin-top: 5px;
 }
-
 .feedProfilePic {
 	position: absolute;
 	top: 0;
@@ -131,7 +131,7 @@ input {
 	position: relative;
 	width: auto;
 	height: 50px;
-	border: 2px solid rgba(0,0,0,1);
+	border: 1px solid rgba(0,0,0,1);
 	background-color: rgba(255,255,255,1);
 	overflow: hidden;
 }
@@ -292,6 +292,7 @@ input {
 	font-weight: bold;
 	letter-spacing: 2px;
 	background-color: rgba(255,255,255,1);
+	margin-right: 10px;
 }
 
 .underProfilePic li {
@@ -301,16 +302,33 @@ input {
 .underProfilePicInfoBox {
 	margin: 25px 0;
 	background-color: rgba(0,0,0,0.1);
-	padding-bottom: 30px;
+	color: rgba(0,0,0,1);
+	padding-bottom: 20px;
 }
 .underProfilePicInfoBox h3{
+	display: inline-block;
 	color: rgba(0,0,0,0.5);
 	line-height: 20px;
 	padding-top: 20px;
+	font-size: 90%;
 }
 /*--------------------------------------------------------------------- END OF CLASSES -------------------------------------------------------------------------- */
 
 /*--------------------------------------------------------------------- IDS -------------------------------------------------------------------------- */
+#newTab {
+	padding-bottom: 0;
+	padding-top: 10px;
+	vertical-align: bottom;
+}
+#newTab button {
+}
+#newTab input {
+	line-height: 36px;
+	margin-right: 10px;
+}
+#newTab button, #newTab input{
+		border: none;
+}
 #profilePic img {
 	position: relative;
 	width: 400px;

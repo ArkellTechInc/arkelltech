@@ -1,16 +1,18 @@
 <% include partials/header %>
 <div class="siteContainer">
 	<div class="topSection">
-			<div class="statusContainer"><h2><%=firstname%> <%=lastname%> </h2><h3>is working on a forum.</h3><span class="edit">[edit]</span></div>
+			<div class="statusContainer"><h2><%=firstname%> <%=lastname%> </h2><h3><%=profilestatus%>&nbsp</h3><span class="edit">[edit]</span></div>
 		<ul>
-			<li>Home</li>
-			<li class="notActiveTab">+</li>
+			<% feedcount.forEach(function(index){  %>
+			<li onclick="showTab(<%=index%>)">Home</li>
+			<% }) %>
+			<li class="notActiveTab" id="createTab" onclick="createTab()">+</li>
 		</ul>
 	</div>
 	<div class="feedSection">
 		<div class="newFeedPost">
 		<form action="/profile" method="post">
-			<h3>What would you list to post?</h3>
+			<h3>What would you like to post?</h3>
 			<table><tr>
 				<td class="nowrap"><h2><%=firstname%> <%=lastname%>&nbsp</h2></td>
 				<td><textarea class="autoExpand" rows='1' data-min-rows='1' wrap="hard" type="text" placeholder="..." name="post" autocomplete="off"></textarea></td>
@@ -20,7 +22,7 @@
 		</div>
 		<% feed.forEach(function(post){  %>
 			<div class="feed">
-				<div class="feedProfilePic"><img src="images/image.png" alt="test" /></div>
+				<div class="feedProfilePic"><img src="images/<%=profilepic%>" alt="test" /></div>
 				<div class="feedName"><%=firstname%> <span class="feedDate"><%= post.date %></span></div>
 				<div class="feedPost"><%= post.post %></div>
 				<div class="editFeed">[edit]</div>
@@ -28,19 +30,19 @@
 		<% }) %>
 	</div>
 	<div class="profileSection">
-		<div id="profilePic"><img src="images/image.png" alt="test" /></div>
+		<div id="profilePic"><img src="images/<%=profilepic%>" alt="test" /></div>
 		<ul class="underProfilePic">
 				<li>change profile picture</li>
-				<li>view members (3)</li>
+				<li>view members (<%=totalmembers%>)</li>
 		</ul>
-		<div class="underProfilePicInfoBox">
-			<h3>title</h3>
-			<h2>president</h2>
-			<h3>latest post</h3>
-			<h2>none</h2>
-			<h3>status</h3>
-			<h2>online</h2>
-		</div>
+		<ul class="underProfilePicInfoBox">
+			<li><h3>title</h3></li>
+			<li id="jobTitle"><%=jobtitle%></li>
+			<li><h3>latest post</h3></li>
+			<li><%=latestpost%></li>
+			<li><h3>status</h3></li>
+			<li><%=status%></li>
+		</ul>
 	</div>
 	
 	
@@ -50,7 +52,7 @@
 			<li><%=firstname%> <%=lastname%></li>
 			<li>forums</li>
 			<li>chat</li>
-			<li>inbox (<%=inboxCount%>)</li>
+			<li>inbox (<%=inboxcount%>)</li>
 			<span class="floatRight">
 			<form action="/search" method="post">
 				<li><input type="text" placeholder="search" name="search"></li>
