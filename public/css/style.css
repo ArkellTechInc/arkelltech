@@ -84,6 +84,10 @@ input {
 /*--------------------------------------------------------------------- END OF TAGS -------------------------------------------------------------------------- */
 
 /*--------------------------------------------------------------------- CLASSES -------------------------------------------------------------------------- */
+.activeTab, #newTab {
+	background-color: rgba(255,255,255,1)!important;
+	color: rgba(0,0,0,1)!important;
+}
 .bottomSection {
 	position: relative;
 	width: 100%;
@@ -140,22 +144,6 @@ input {
 	width: calc(100%-450px);
 	margin: 20px 20px 20px 450px;
 }
-.statusContainer {
-	position: absolute;
-	min-width: 630px;
-	height: 50px;
-	top: 75px;
-	left: 450px;
-}
-.statusContainer h2 {
-	display: inline-block;
-	font-size: 36px;
-}
-.statusContainer h3 {
-	display: inline-block;
-	font-size: 24px;
-	padding-left: 10px;
-}
 .floatRight {
 	float: right;
 }
@@ -191,10 +179,6 @@ input {
 .newFeedPost h3{
 	line-height: 36px;
 	font-size: 18px;
-}
-.notActiveTab {
-	background-color: rgba(0,0,0,0.5)!important;
-	color: rgba(255,255,255,1)!important;
 }
 .nowrap {
 	width:1%;
@@ -240,6 +224,22 @@ input {
 	left: 0;
 	min-width: 100%;
 	height: 100%;
+}
+.statusContainer {
+	position: absolute;
+	min-width: 630px;
+	height: 50px;
+	top: 75px;
+	left: 450px;
+}
+.statusContainer h2 {
+	display: inline-block;
+	font-size: 36px;
+}
+.statusContainer h3 {
+	display: inline-block;
+	font-size: 24px;
+	padding-left: 10px;
 }
 .topMenu {
 	position: fixed;
@@ -291,8 +291,10 @@ input {
 	min-width: 60px;
 	font-weight: bold;
 	letter-spacing: 2px;
-	background-color: rgba(255,255,255,1);
 	margin-right: 10px;
+	background-color: rgba(0,0,0,0.5);
+	color: rgba(255,255,255,1);
+	cursor: pointer;
 }
 
 .underProfilePic li {
@@ -321,6 +323,9 @@ input {
 	vertical-align: bottom;
 }
 #newTab button {
+}
+#newTab form {
+	display: inline-block;
 }
 #newTab input {
 	line-height: 36px;

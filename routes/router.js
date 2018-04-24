@@ -78,7 +78,7 @@ router.get('/profile', function (req, res, next) {
 					return next(err);
 				} else {
 					//page succussfully loaded here
-					req.session.activeFeed = req.session.userId+user.feedcount[0];
+					req.session.activeFeed = user.feedtabs[0];
 					FeedPost.find({'postedto':user._id}, function (error, feed) {
 						feed.reverse();
 						res.render('profile', {
@@ -90,7 +90,7 @@ router.get('/profile', function (req, res, next) {
 							status: user.status,
 							inboxcount: user.inboxcount,
 							feed: feed,
-							feedcount: user.feedcount,
+							feedtabs: user.feedtabs,
 							profilepic: user.profilepic,
 							profilestatus: user.profilestatus,
 							totalmembers: count
@@ -118,6 +118,18 @@ router.post('/profile', function(req,res, next){
 			} else {
 				return res.redirect('/postedToFeed');
 			}
+		});
+	} else if(req.body.newtab) {
+		User.count({}, function( error, count){
+			User.findById(req.session.userId).exec(function (error, user) {
+			if (error) {
+				return next(error);
+			} else {
+				user.feedtabs.push(req.body.newtab);
+				user.save();
+				return res.redirect('/postedToFeed');
+			}
+			});
 		});
 	} else {
 		var err = new Error('All fields required.');

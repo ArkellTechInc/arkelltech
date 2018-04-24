@@ -2,12 +2,15 @@
 <div class="siteContainer">
 	<div class="topSection">
 			<div class="statusContainer"><h2><%=firstname%> <%=lastname%> </h2><h3><%=profilestatus%>&nbsp</h3><span class="edit">[edit]</span></div>
-		<ul>
-			<% feedcount.forEach(function(index){  %>
-			<li onclick="showTab(<%=index%>)">Home</li>
-			<% }) %>
-			<li class="notActiveTab" id="createTab" onclick="createTab()">+</li>
-		</ul>
+		<form action='/profile' method='post'>
+			<ul>
+				<li class="activeTab" onclick="showTab(-1)">Home</li>
+				<% feedtabs.forEach(function(content,index){  %>
+				<li onclick="showTab(<%=index%>)"><%=content%></li>
+				<% }) %>
+				<li id="createTab" onclick="createTab()">+</li>
+			</ul>
+		</form>
 	</div>
 	<div class="feedSection">
 		<div class="newFeedPost">

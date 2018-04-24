@@ -18,6 +18,11 @@ function showTab(index) {
 }
 function createTab() {
 	$('#createTab').hide();
-	$('#createTab').before("<li id='newTab'><input type='text' placeholder='new tab' name='newtab' autofocus='autofocus'><button type='submit'>save</button></li>");
+	$('#createTab').before("<li id='newTab'><input type='text' onblur='hideNewTab()' placeholder='new tab' name='newtab' id='newTabInput' /><button type='submit'>save</button></li>").delay(400);
+	$('#newTabInput').focus();
 	console.log("create a new tab");
+}
+function hideNewTab() {
+	$('#newTab').remove();
+	$('#createTab').show();
 }

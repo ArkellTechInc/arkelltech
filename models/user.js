@@ -22,9 +22,8 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  feedcount: {
-	  type: Array,
-	  'default': []
+  feedtabs: {
+	  type: Array
   },
   jobtitle: {
     type: String,
