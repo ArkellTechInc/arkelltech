@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var FeedSchema = new mongoose.Schema({
   feed: {
     type: String,
-    required: true
+    required: true,
+	'default': ['Home']
   },
   postedby: {
     type: mongoose.Schema.Types.ObjectId,

@@ -20,7 +20,7 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   feedtabs: {
 	  type: Array
@@ -44,7 +44,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
 	enum: ["workin'", "mossin'"],
     trim: true,
-	'default': "workin'"
+	'default': "workin'",
   },
   profilepic: {
     type: String,
@@ -52,6 +52,10 @@ var UserSchema = new mongoose.Schema({
 	'default': "nopic.jpg"
   },
   inboxcount: {
+    type: Number,
+	'default': 1
+  },
+  postcount: {
     type: Number,
 	'default': 1
   }

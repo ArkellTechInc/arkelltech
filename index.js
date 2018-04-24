@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname,'views'));
 app.use(express.static(path.join(__dirname,'public')));
 
 //connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1/'+database);
+mongoose.connect('mongodb://localhost/'+database);
 var db = mongoose.connection;
 
 //handle mongo error
