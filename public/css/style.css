@@ -75,6 +75,7 @@ button {
 	font-family: anon, monospace;
 	font-size: 18px;
 	padding: 10px;
+	cursor: pointer;
 }
 input {
     background-color: rgba(255,255,255,1);
@@ -300,6 +301,7 @@ input {
 .underProfilePic li {
 	border-bottom: 1px solid rgba(0,0,0,1);
 	line-height: 40px;
+	cursor: pointer;
 }
 .underProfilePicInfoBox {
 	margin: 25px 0;

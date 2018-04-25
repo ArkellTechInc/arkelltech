@@ -12,17 +12,27 @@ $(document)
         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
         this.rows = minRows + rows;
     });
-
+function saveTab() {
+	console.log("wow it worked");
+	$("#tabForm").submit();
+}
 function showTab(index) {
 	console.log("show tab with index "+index);
 }
 function createTab() {
 	$('#createTab').hide();
-	$('#createTab').before("<li id='newTab'><input type='text' onblur='hideNewTab()' placeholder='new tab' name='newtab' id='newTabInput' /><button type='submit'>save</button></li>").delay(400);
+	if($('#newTab').length == 0){
+	$('#createTab').before("<li id='newTab'><input type='text' onblur='hideNewTab()' placeholder='new tab' name='newtab' id='newTabInput' /><button onmousedown='saveTab()'>save</button></li>");
+	} else {
+		$('#newTab').show();
+	}
 	$('#newTabInput').focus();
 	console.log("create a new tab");
 }
 function hideNewTab() {
-	$('#newTab').remove();
+	$('#newTab').hide();
 	$('#createTab').show();
+}
+function changeProfilePic() {
+	console.log("change pic activated");
 }

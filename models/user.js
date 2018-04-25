@@ -49,7 +49,7 @@ var UserSchema = new mongoose.Schema({
   profilepic: {
     type: String,
     trim: true,
-	'default': "nopic.jpg"
+	'default': "images/nopic.jpg"
   },
   inboxcount: {
     type: Number,

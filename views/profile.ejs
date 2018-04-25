@@ -3,7 +3,7 @@
 <div class="siteContainer">
 	<div class="topSection">
 			<div class="statusContainer"><h2><%=firstname%> <%=lastname%> </h2><h3><%=profilestatus%>&nbsp</h3><span class="edit">[edit]</span></div>
-		<form action='/profile' method='post'>
+		<form id="tabForm" action='/profile' method='post'>
 			<ul>
 				<li class="activeTab" onclick="showTab(-1)">Home</li>
 				<% feedtabs.forEach(function(content,index){  %>
@@ -34,9 +34,9 @@
 		<% }) %>
 	</div>
 	<div class="profileSection">
-		<div id="profilePic"><img src="images/<%=profilepic%>" alt="test" /></div>
+		<div id="profilePic"><img src="<%=profilepic%>" alt="test" /></div>
 		<ul class="underProfilePic">
-				<li>change profile picture</li>
+				<li onclick="changeProfilePic()">change profile picture</li>
 				<li>view members (<%=totalmembers%>)</li>
 		</ul>
 		<ul class="underProfilePicInfoBox">
