@@ -26,7 +26,7 @@
 		</div>
 		<% feed.forEach(function(post){  %>
 			<div class="feed">
-				<div class="feedProfilePic"><img src="images/<%=profilepic%>" alt="test" /></div>
+				<div class="feedProfilePic"><img src="<%=profilepic%>" alt="test" /></div>
 				<div class="feedName"><%=firstname%> <span class="feedDate"><%= post.date %></span></div>
 				<div class="feedPost"><%= post.post %></div>
 				<div class="editFeed">[edit]</div>

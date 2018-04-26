@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var path = require('path');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var port = 3000;
 var database = "arkelltech";
@@ -30,7 +32,7 @@ db.once('open', function () {
 app.use(session({
   secret: 'best practice',
   resave: true,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: new MongoStore({
     mongooseConnection: db
   })
@@ -43,6 +45,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // include routes
 var routes = require('./routes/router');
 app.use('/', routes);
+
+// include sockets
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -61,7 +65,12 @@ app.use(function (err, req, res, next) {
 		});
 });
 
+//sockets
+io.on('connection', function(socket){
+	console.log('we in there');
+});
+
 // listen on port
-app.listen(port, function () {
+http.listen(port, function () {
   console.log('Arkell Tech listening on port '+port);
 });

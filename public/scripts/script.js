@@ -1,3 +1,12 @@
+var socket = io();
+
+//refreshed the page once to get new tabs after creation
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
 // makes the text area dynamically scale
 $(document)
     .one('focus.autoExpand', 'textarea.autoExpand', function(){
@@ -13,7 +22,6 @@ $(document)
         this.rows = minRows + rows;
     });
 function saveTab() {
-	console.log("wow it worked");
 	$("#tabForm").submit();
 }
 function showTab(index) {
@@ -22,7 +30,7 @@ function showTab(index) {
 function createTab() {
 	$('#createTab').hide();
 	if($('#newTab').length == 0){
-	$('#createTab').before("<li id='newTab'><input type='text' onblur='hideNewTab()' placeholder='new tab' name='newtab' id='newTabInput' /><button onmousedown='saveTab()'>save</button></li>");
+	$('#createTab').before("<li id='newTab'><input type='text' onblur='hideNewTab()' placeholder='new tab' name='newtab' id='newTabInput' autocomplete='off' /><button onmousedown='saveTab()'>save</button></li>");
 	} else {
 		$('#newTab').show();
 	}

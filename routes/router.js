@@ -137,8 +137,8 @@ router.post('/profile', function(req,res, next){
 		return next(err);
 	}
 });
-router.get('/postedToFeed', function(req,res){
-	res.redirect('/profile');
+router.get('/postedToFeed', function(req,res, next){
+	res.redirect('back');
 });
 
 // GET for logout logout

@@ -5,8 +5,7 @@ var UserSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true,
-    trim: true
+    required: true
   },
   firstname: {
     type: String,
@@ -23,7 +22,8 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
   feedtabs: {
-	  type: Array
+	type: Array,
+	validate: [arrayLimit, '{PATH} too many tabs']
   },
   jobtitle: {
     type: String,
@@ -94,7 +94,9 @@ UserSchema.pre('save', function (next) {
     next();
   })
 });
-
+function arrayLimit(val) {
+  return val.length <= 7;
+}
 
 
 var User = mongoose.model('User', UserSchema);
